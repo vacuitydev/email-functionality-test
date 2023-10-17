@@ -1,8 +1,8 @@
 import { SMTPClient } from 'emailjs';
 
 const client = new SMTPClient({
-	user: 'nestor.wintheiser68@ethereal.email',
-	password: 'WTkG7hjPgUgnbZE3GK',
+	user: process.env.NESTHOR_UNAME,
+	password: process.env.NESTHOR_PASSWORD,
 	host: 'smtp.ethereal.email',
     port:587,
 	ssl: true,
@@ -14,8 +14,8 @@ const client = new SMTPClient({
 client.send(
 	{
 		text: 'i hope this works',
-		from: 'Nestor Wintheiser <nestor.wintheiser68@ethereal.email>',
-		to: 'Olga <olga27@ethereal.email>',
+		from: `Nestor Wintheiser <${process.env.NESTHOR_UNAME}>`,
+		to: `Olga <${process.env.OLGA_UNAME}>`,
 		subject: 'testing emailjs',
 	},
 	(err, message) => {
